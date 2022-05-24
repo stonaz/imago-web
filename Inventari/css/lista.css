@@ -1,0 +1,95 @@
+#largeContentContainer
+{
+	background-color: #fff;
+	float: right;
+	width: 70%;
+}
+
+
+
+/* Large Content */
+
+#menuContentContainer
+{
+	background-color: #fff;
+	float: left;
+	width: 30%;
+}
+
+.menuRicerca{
+	padding:3px;
+	background-color: #ccc;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 11pt;
+	
+}
+
+
+.linkScheda{
+    background: url(images/letter.gif) no-repeat left top #fff;
+    list-style-type: none;
+    /*text-decoration: underline;*/
+    cursor: pointer;
+    padding-left: 20px;
+    margin: 5px;
+    font-size: 14px;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+.denominazione{
+   cursor: text;
+    padding-left: 20px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.risultatiRicerca{
+padding-left: 5px;
+    font-size:1.2em;
+    font-family:  Arial, sans-serif;
+}
+
+#accordion
+{
+	vertical-align: top;
+}
+
+a.opening {
+    font-family:  Arial, sans-serif;
+    display:block;
+    background: url(images/folder_closed.gif) no-repeat 10px 3px #fff;
+    padding:3px 30px;
+    text-decoration:none;
+    color:#2f3040;
+  /*font-weight:bold;*/
+    font-size:14px; 
+    }
+
+  
+ a.active {
+    color:#2f3040;
+    background: url(images/folder_open.gif) no-repeat 10px 3px #fff;
+    }
+    
+.expanded {
+    padding-left: 25px;
+    padding-top: 5px;
+    font-size:1.2em; 
+
+    }
+.expanded p {
+    padding-bottom:20px;
+    }
+.expanded .expanded {
+    background:url(images/letter.gif);
+    padding:0;
+    color:#ccc;
+    }
+.expanded .expanded p {
+    padding:15px;
+    }
+    
+.inputRicercaTesto {
+    width: 25%;
+    }
+    

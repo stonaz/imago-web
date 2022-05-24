@@ -1,0 +1,12 @@
+<?PHP
+
+function log_access($user,$ip,$timestamp)
+{
+$dbconn = pg_connect ("host=localhost port=5432 dbname=Topografico user=postgres password=postgres") or die ('no db');
+$result = pg_prepare($dbconn, "query", "INSERT into access_log ( \"user\" , ip_address, \"timestamp\") values ( $1 ,  $2, $3)");
+$result = pg_execute($dbconn, "query", array($user,$ip,$timestamp));
+}
+//$current_timestamp = date('Y-m-d H:i:s');
+//log_access('test' ,  '10.10.3.3', $current_timestamp);
+
+?>

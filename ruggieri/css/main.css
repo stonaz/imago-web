@@ -1,0 +1,101 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+#Carte
+{
+    /*display:none;*/
+}
+
+
+.presentazione
+{
+font-size:12px;
+    color:#000000;
+    background-color: #FFFFFF;
+    word-wrap: break-word;
+    padding: 1px;
+    padding-right:  20px;
+    margin: 1px;
+    text-align: justify;
+    /*display: none;*/
+    overflow:auto;
+    max-height:400px;
+}
+
+.lista{
+    font-size:11px;
+    color:#000000;
+    background-color: #FFFFFF;
+    word-wrap: break-word;
+    padding: 1px;
+    margin: 1px;
+    /*display: none;*/
+    overflow:auto;
+    max-height:600px;
+}
+
+.categoria{
+    font-size:12px;
+    font-weight: bold;
+    color:#0000FF;
+    background-color: #CCCCCC;
+    word-wrap: break-word;
+    padding: 1px;
+    margin: 1px;
+    cursor: pointer
+
+}
+
+.titolo{
+    font-size:12px;
+    font-weight: bold;
+    color:#000000;
+    background-color: #CCCCCC;
+    word-wrap: break-word;
+    border-style:solid;
+    border-width:1px;
+    padding: 1px;
+    margin: 1px auto; 
+   
+    width:796px; 
+}
+
+.descrizione{
+    font-size:12px;
+    color:#000000;
+    background-color: #FFFFFF;
+    word-wrap: break-word;
+    border-style:solid;
+    border-width:1px;
+    padding: 1px;
+    margin: 1px auto; 
+    width:796px; 
+    
+}
+
+.right
+{
+position:relative;
+right:-20px;
+
+}
+
+#lista li {
+  font: 200 12px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  list-style:none;
+}
+
+li:hover   {color:blue;}
+
+.plugin
+{
+position:relative;
+right:-40px;
+vertical-align: middle;
+}
+
+
+

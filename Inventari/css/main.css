@@ -1,0 +1,20 @@
+#largeContentContainer
+{
+	background-color: #fff;
+	float: right;
+	width: 65%;
+}
+
+
+
+/* Large Content */
+
+#menuContentContainer
+{
+	background-color: #fff;
+	float: left;
+	width: 35%;
+}
+
+
+

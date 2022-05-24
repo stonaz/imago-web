@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title> Sign up</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <!-- start header div -->
+    <div id="header">
+        <h3>Imago > Sign up</h3>
+    </div>
+    <!-- end header div -->  
+     
+    <!-- start wrap div -->  
+    <div id="wrap">
+         
+        <!-- start php code -->
+<?php
+ 
+    if(isset($_POST['email']) && !empty($_POST['email']) AND isset($_POST['pwd']) && !empty($_POST['pwd']))
+    {
+        $pwd = $_POST['pwd']; // Turn our post into a local variable
+        $email = $_POST['email']; // Turn our post into a local variable
+        if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email)){
+        $msg = 'Email non valida.';
+}else{
+    $msg = 'Il tuo account è stato creato, <br /> Attivalo  cliccando sul link che ti è stato spedito per email.';
+    //$dbConnection = new PDO('postgr:dbname=ebrei;host=localhost;charset=utf8', 'postgres', 'Superman123');
+    $pdo = new PDO('pgsql:host=localhost;dbname=ebrei', 'postgres', 'Superman123');
+    $hash = md5( rand(0,1000) );
+    $stmt = $pdo->prepare("INSERT INTO users (password, email,hash) VALUES (crypt(:pwd, gen_salt('bf', 8)), :email,:hash   )");
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':pwd', $pwd);
+    $stmt->bindParam(':hash', $hash);
+    $stmt->execute() or die('error on insert');
+    $to      = $email; // Send email to our user
+    $subject = 'Signup | Verification'; // Give the email a subject 
+    $message = '
+ 
+
+Il tuo account è stato creato, puoi accedere usando le credenziali indicate sotto, dopo averlo attivato cliccando sul link sottostante.
+ 
+------------------------
+Username: '.$email.'
+Password: '.$pwd.'
+------------------------
+ 
+Please click this link to activate your account:
+http://94.177.173.163/discriminazioni/verify.php?email='.$email.'&hash='.$hash.'
+ 
+'; // Our message above including the link
+                     
+    $headers = 'From:noreply@beniculturali.it' . "\r\n"; // Set from headers
+    mail($to, $subject, $message, $headers); // Send our email
+}
+    }
+    
+             
+?>
+        <!-- stop php code -->
+     
+        <!-- title and description -->   
+        <h3>Registrazione</h3>
+        <p>Inserisci la tua email e la password </p>
+         <?php 
+    if(isset($msg)){  // Check if $msg is not empty
+        echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
+    } 
+?>
+        <!-- start sign up form -->  
+        <form action="" method="post">
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="" /><br>
+            <label for="pwd">Password:</label>
+            <input type="password" name="pwd" value="" />
+             
+            <input type="submit" class="submit_button" value="Vai" />
+        </form>
+        <!-- end sign up form -->
+         
+    </div>
+    <!-- end wrap div -->
+</body>
+</html>

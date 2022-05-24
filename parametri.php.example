@@ -1,0 +1,14 @@
+<?php
+$server= '212.189.172.99';
+//$serverIIP= 'www.cflr.beniculturali.it';
+//$serverIIP= 'www.imago.archiviodistatoroma.beniculturali.it';
+$serverIIP= '10.211.55.14';
+$dbserver= '192.168.1.10';
+$user='***';
+$pwd="***";
+//$root="\\\\192.168.2.5\\imago\\Patrimonio\\Archivi\\AS_Roma\\Imago\\";
+$sfoglia_root="/data/imago/images/";
+$root="/Patrimonio/";
+$credits_url="../credits";
+$viewer = "iiifserver.php"
+?>

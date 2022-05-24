@@ -1,0 +1,41 @@
+body {
+  background-color: #fff;
+  margin: 0;
+}
+
+#wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#leftcolumn,
+#rightcolumn {
+  border: 1px solid white;
+  float: left;
+  
+  color: black;
+}
+
+#leftcolumn {
+  width: 150px;
+  background-color: #fff;
+  overflow:auto;
+  max-height: 700px;
+}
+
+#rightcolumn {
+  width: 745px;
+  background-color: #fff;
+}
+
+.intestazione{
+  text-align: center;
+  font-size: 16px;
+}
+
+.intestazione_red{
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+}

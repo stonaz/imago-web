@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<title>Caminova, Inc. - Error</title>
+		<meta name="Description" content="Caminova develops content management softwares and productivity tools for various users, including image compression, image processing, digital imaging, content archiving, image editing and image annotation solutions." />
+		<meta name="keywords" content="Caminova,document imaging,archiving,content management,image prosessing,DAM,DRM,DjVu,JPEG2000,JP2K,high compression,High Compression PDF,PDF,annotation" />		<meta name="author" content="Caminova, Inc." />
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+		<link rel="stylesheet" title="Normal" type="text/css" media="screen" href="/css/screen.css" />
+	</head>
+	<body>
+		<div id="main">
+			<div id="header">
+								<div class="left">
+					<a href="/en/"><img src="/en/images/logo.png" alt="Caminova, Inc." width="200" height="40" /></a>
+				</div>
+				<div class="right">
+						<select id="lang_sel" onchange="setLang(this)">
+							<option value="ja">日本語</option>
+							<option value="en" selected>English</option>
+						</select>
+					<br />
+					<form action="http://www.google.com/cse" id="cse-search-box" target="_blank">
+						<div>
+							<input type="hidden" name="cx" value="partner-pub-0794090612034881:4jkvt1-t1fh" />
+							<input type="hidden" name="ie" value="ISO-8859-1" />
+							<input type="text" name="q" size="31" />
+							<input type="submit" name="sa" value="Search" />
+						</div>
+					</form>
+					<script type="text/javascript">
+(function() {
+var f = document.getElementById('cse-search-box');
+if (!f) {
+f = document.getElementById('searchbox_demo');
+}
+if (f && f.q) {
+var q = f.q;
+var n = navigator;
+var l = location;
+var su = function () {
+var u = document.createElement('input');
+var v = document.location.toString();
+var existingSiteurl = /(?:[?&]siteurl=)([^&#]*)/.exec(v);
+if (existingSiteurl) {
+v = decodeURI(existingSiteurl[1]);
+}
+var delimIndex = v.indexOf('://');
+if (delimIndex >= 0) {
+v = v.substring(delimIndex + '://'.length, v.length);
+}
+u.name = 'siteurl';
+u.value = v;
+u.type = 'hidden';
+f.appendChild(u);
+};
+if (n.appName == 'Microsoft Internet Explorer') {
+var s = f.parentNode.childNodes;
+for (var i = 0; i < s.length; i++) {
+        if (s[i].nodeName == 'SCRIPT'
+            && s[i].attributes['src'].nodeValue == unescape('http:\x2F\x2Fwww.google.com\x2Fcse\x2Fbrand?form=cse-search-box\x26lang=en')) {
+          su();
+          break;
+        }
+      }
+    } else {
+      su();
+    }
+
+    
+    if (n.platform == 'Win32') {
+      q.style.cssText = 'border: 1px solid #7e9db9; padding: 2px;';
+    }
+
+    
+    if (window.history.navigationMode) {
+      window.history.navigationMode = 'compatible';
+    }
+
+    var b = function() {
+      if (q.value == '') {
+        q.style.background = '#FFFFFF url(http:\x2F\x2Fwww.google.com\x2Fcse\x2Fintl\x2Fen\x2Fimages\x2Fgoogle_custom_search_watermark.gif) left no-repeat';
+      }
+    };
+
+    var f = function() {
+      q.style.background = '#ffffff';
+    };
+
+    q.onfocus = f;
+    q.onblur = b;
+
+    
+    if (!/[&?]q=[^&]/.test(l.search)) {
+      b();
+    }
+  }
+})();
+                    </script>
+					<br />
+					<a href="/en/shop/signin.aspx"><img src="/en/images/login.png" alt="" /></a>
+					<a href="/en/shop/showcart.aspx?task=view"><img src="/en/images/cart.png" alt="" width="54" height="12" /></a>
+				</div>
+				<script type="text/javascript">
+				<!--
+					initLangSelect();
+
+					function setLang(obj) {
+						var name = "UserSettings";								// Cookie name
+						var value = obj.value;									// Cookie value
+						var period = 30;										// Expirity
+						var lang = location.pathname.substr(1, 2)				// Cookie value
+
+						if (value != "ja" && value != "en") {
+							value = getLang();
+						}
+
+						// Make expiration date
+						var nowtime = new Date().getTime();
+						var clear_time = new Date(nowtime + (60 * 60 * 24 * 1000 * period));
+						var expires = clear_time.toGMTString();
+
+						// Write cookie
+						document.cookie = name + "=lang=" + escape(value) + "; path=/; expires=" + expires;
+
+						var regexp = new RegExp("\/" + lang + "\/");
+						var path = location.href.replace(regexp, "\/" + value + "\/");
+						location.href = path;
+					}
+
+					function initLangSelect() {
+						var sel = document.getElementById("lang_sel");
+						var period = 30;										// Expirity
+						var value = location.pathname.substr(1, 2)				// Cookie value
+
+						if (value != "ja" && value != "en") {
+							value = getLang();
+						}
+
+						//alert("value : " + value);
+						for (i = 0; i < sel.length; i++) {
+							//alert("option : " + sel.options[i].value );
+							if (sel.options[i].value == value) {
+								sel.selectedIndex = i;
+							}
+						}
+					}
+
+					function setLangSelect() {
+						var sel = document.getElementById("lang_sel");
+						var period = 30;					// Expirity
+						var value = getLang()				// Cookie value
+
+						//alert("value : " + value);
+						for (i = 0; i < sel.length; i++) {
+							//alert("option : " + sel.options[i].value );
+							if (sel.options[i].value == value) {
+								sel.selectedIndex = i;
+							}
+						}
+					}
+
+					function getLang() {
+						var name = "UserSettings";			// Cookie name
+						var value = null;					// Cookie value
+
+						// Read cookie
+						if (document.cookie) {
+							var cookies = document.cookie.split("; ");
+							for (var i = 0; i < cookies.length; i++) {
+								var str = cookies[i].split("=");
+								if (str[0] == name) {
+									value = unescape(str[2]);
+									return value.split("&")[0];
+									break;
+								}
+							}
+						}
+						return null;
+					}
+				//-->
+				</script>
+
+			</div>
+			<div id="menu">
+									<ul>
+					<li id="menu_home"><a href="/en/">Home</a></li>
+					<li id="menu_company"><a href="/en/company/">Company</a></li>
+					<li id="menu_customers"><a href="/en/customers/.?src=customers_djvu.aspx">Customers</a></li>
+					<li id="menu_products"><a href="/en/products/.?src=products2.aspx">Products</a></li>
+					<li id="menu_download"><a href="/en/downloads/">Download</a></li>
+					<li id="menu_contact"><a href="/en/contact/">Contact</a></li>
+					<li id="menu_support"><a href="/en/support/">Support</a></li>
+					<li id="menu_shop"><a href="/en/shop/">Shop</a></li>
+				</ul>
+				<script type="text/javascript">
+				<!--
+					if (location.href.indexOf("products") >= 0) {
+						document.getElementById("menu_products").className = "selected";
+					} else if (location.href.indexOf("download") >= 0) {
+						document.getElementById("menu_download").className = "selected";
+					} else if (location.href.indexOf("support") >= 0) {
+						document.getElementById("menu_support").className = "selected";
+					} else if (location.href.indexOf("contact") >= 0) {
+						document.getElementById("menu_contact").className = "selected";
+					} else if (location.href.indexOf("company") >= 0) {
+						document.getElementById("menu_company").className = "selected";
+					} else if (location.href.indexOf("customers") >= 0) {
+						document.getElementById("menu_customers").className = "selected";
+					} else if (location.href.indexOf("shop") >= 0) {
+						document.getElementById("menu_shop").className = "selected";
+					} else {
+						document.getElementById("menu_home").className = "selected";
+					}
+				//-->
+				</script>
+
+			</div>
+			<div id="content">
+				<div id="content_no_border">
+					<h2>404 - Page not found</h2>
+					<p>Sorry, the specified page was deleted or not found. Please select the page you want from the menu above.<br /><br /></p>
+				</div>
+			</div>
+						<div id="footer">
+				<p align="center">Copyright &copy; 2009 Caminova, Inc. All rights reserved.</p>
+			</div>
+
+		</div>
+</body>
+</html>

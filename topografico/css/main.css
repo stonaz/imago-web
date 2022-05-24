@@ -1,0 +1,47 @@
+
+body{
+  font-family: Arial, sans-serif;
+  margin-bottom: 5px;
+}
+
+.searchBox
+{
+  float: left;
+  
+  margin: 2px;
+  background: #ddd;
+}
+
+
+table,tr,td{
+ 
+ 
+  font-size: small;
+  background-color: #ddd;
+ }
+ 
+ .red{
+  color:red;
+ }
+ 
+ .table-cont{
+  /**make table can scroll**/
+  max-height: 800px;
+  overflow: auto;
+  /** add some style**/
+  /*padding: 2px;*/
+  background: #ddd;
+  margin: 20px 10px;
+  box-shadow: 0 0 1px 3px #ddd;
+}
+
+thead,th{
+  background-color: #fff;
+  border-spacing: 0px;
+  
+}
+
+.custom {
+    width: 200px !important;
+    margin: 5px;
+}

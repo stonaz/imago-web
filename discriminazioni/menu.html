@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="utf-8"" />
+<link href="css/style_icrcpal2.css" rel="stylesheet" type="text/css" />
+
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  
+<script id="templateHome" type="text/template">
+ 
+  <div class="homeImage">
+  
+   <br>
+ <div  style="text-align: center;color:black;">
+  <strong>
+   <h3>
+       Selezionare un elemento dall'elenco delle segnature a sinistra o una delle modalità di ricerca dai menu.
+   </h3>
+  </strong>
+   <br>
+</div>
+
+</div>
+</script>
+ 
+<script id="templateSegnatura" type="text/template">
+ 
+  
+   <div class="nome_classe"><%= fondo %></div>
+ 
+  <div  class="elenco_fondi" >
+  <% _.each(serie, function(s)
+  { %>
+  <div class="accordion">
+  <a class="opening" href="#" ><%= s.serie %></a>
+   <% _.each(s.buste, function(busta)
+  { %>
+  <a class="opening-sub expanded" href="scheda.php?busta=<%= busta.numero %>&fondo=<%= busta.fondo%>&serie=<%= busta.serie %>" target="s" >
+   <%= busta.titolo %><br>
+   
+  </a>
+
+
+     <% });
+  %>
+  </div>
+  <% });
+  %>
+  <%= message %>
+</div>
+ 
+
+
+</script>
+
+<script id="templateSegnatureTrovate" type="text/template">
+ <div class="risultatiRicerca">
+  Schede trovate : <span class="count"><%= count %></span>
+  <% _.each(segnature, function(segnatura)
+  { %>
+  <li id="<%= segnatura.segnatura %>" class="linkScheda"><strong><%= segnatura.fondo %><br><%= segnatura.serie %><br><%= segnatura.busta %> - <%= segnatura.UA %></strong></li>
+  <% });
+  %>
+</div>
+
+</script>
+
+<div id="listaPrincipale">
+ 
+</div>
+
+</body>
+	
+        <script src="js/vendor/jquery-1.10.1.min.js"></script>
+	<script src="js/vendor/underscore.js"></script>
+	<script src="js/vendor/jquery-ui-1.10.3.custom.js"></script>
+        <!--<script src='js/lista_segnature.js'></script>-->
+        <script src='js/lista_var.js'></script>
+        <!--<script src='js/lista_segnature_collezioni.js'></script>-->
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
+         
+$( document ).ready(function() {
+
+initialize();
+
+});
+	 
+	</script>
+</html>

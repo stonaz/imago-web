@@ -1,0 +1,10 @@
+<DIV id=menu_orizzontale>
+<UL>
+<LI><A HREF="index_archivio.htm" target="_top">Archivio di Terni</A></LI>
+<LI><A HREF="index_bazzani.htm" target="_top">Arch. Cesare Bazzani</A></LI>
+<LI><A HREF="index_fondo.htm" target="_top">Fondo C. Bazzani</A></LI>
+<LI><A HREF="index_ricerca.htm" target="_top">Ricerca</A></LI>
+<LI><A HREF="index_progetto.htm" target="_top">Il Progetto</A></LI>
+<LI><A HREF="index_contatti.htm" target="_top">Contatti</A></LI>
+</UL>
+</DIV>
