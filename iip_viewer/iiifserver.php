@@ -1,5 +1,6 @@
 		<?php
-$root="/data/imago/images/";
+//$root="/data/imago/images/";
+require '../parametri.php';
 $dir=$_GET['dir'];
 $file=$_GET['file'];
 $image = $root.$dir.$file;
