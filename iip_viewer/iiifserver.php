@@ -2,6 +2,10 @@
 //$root="/data/imago/images/";
 require '../parametri.php';
 $dir=$_GET['dir'];
+if ($dir=="AS_Terni")
+{
+	$root = "/images/Patrimonio/Archivi/AS_Terni";
+}
 $file=$_GET['file'];
 $image = $root.$dir.$file;
 echo $image;
