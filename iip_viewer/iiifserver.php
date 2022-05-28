@@ -4,7 +4,7 @@ require '../parametri.php';
 $dir=$_GET['dir'];
 if ($dir=="/AS_Terni/")
 {
-	$root = "/images/Patrimonio/Archivi/AS_Terni";
+	$root = "/images/Patrimonio/Archivi/";
 }
 $file=$_GET['file'];
 $image = $root.$dir.$file;
