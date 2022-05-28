@@ -71,7 +71,7 @@ $dir=substr($file,2,3);
 
 echo "<A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir_imm.$dir."')\" BORDER=0>";
-	    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Terni/".$dir_imm."/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=/images/Patrimonio/Archivi/AS_Terni/".$dir_imm."/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 	print'
 </A><br>';
 
