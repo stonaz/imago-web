@@ -2,7 +2,7 @@
 //$root="/data/imago/images/";
 require '../parametri.php';
 $dir=$_GET['dir'];
-if ($dir=="/AS_Terni")
+if ($dir=="/AS_Terni/")
 {
 	$root = "/images/Patrimonio/Archivi/AS_Terni";
 }
