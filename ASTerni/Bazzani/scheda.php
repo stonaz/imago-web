@@ -22,14 +22,14 @@ if ($a=="FORLI") return ("FORLI'");
 return $a;
 }
 
-function mostra($row,$server,$serverIIP)
+function mostra($row,$server,$serverIIP,$dbserver)
 {
 
 
 	global $db;
 	global $dir_imm;
 	global $dir_thu;
-	$link_id=db_connect();
+	$link_id=db_connect($dbserver);
 	if (strlen($row)>3) {$query="SELECT * FROM \"disegni\" WHERE \"codicedisegno\"='".$row."' ORDER BY NCORDA";}
 	else {$query="SELECT * FROM disegni WHERE UAProgetto ='".$row."' ORDER BY NCORDA";}
 	//echo $query;
@@ -83,7 +83,7 @@ print'</table>';
 echo "\n";
 db_disconnect();
 }
-mostra($row,$server,$serverIIP);
+mostra($row,$server,$serverIIP,$dbserver);
 
 ?>
 
