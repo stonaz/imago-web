@@ -20,7 +20,7 @@ $link=$params[1];
 }
 
 //print_r($params);
-function mostra($dbconn,$row,$dbserver,$host,$corda,$link)
+function mostra($dbconn,$row,$dbserver,$host,$corda,$link,$serverIIP)
 {
 print'
 	 <table width="100%" align="center">
@@ -132,7 +132,7 @@ print'</td>
 	';
 	
 }
-mostra($dbconn,$row,$dbserver,$host,$corda,$link);
+mostra($dbconn,$row,$dbserver,$host,$corda,$link,$serverIIP);
 
 ?>
 
