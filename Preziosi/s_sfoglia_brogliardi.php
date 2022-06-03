@@ -44,7 +44,7 @@ function mostra($row,$dir,$dbserver,$serverIIP,$index,$fileimm,$root,$sfoglia_ro
 	}
 	echo "<CENTER><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir."')\" BORDER=0>";
-	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/?FIF=".$root.$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=".$root.$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 	//echo "<IMG SRC=\"http://".$host."/lizardtech/iserv/getthumb?cat=".$catalogo."&item=".$dir."\\".$file."&thumbspec=bigger\">";
 	print'</A></CENTER>';
 	

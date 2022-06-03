@@ -53,7 +53,8 @@ print '
 	$file=$info[21].".jp2";
 
 	echo "<CENTER><A  target=\"_new\" HREF=\"sfoglia_brogliardi.php?Path=".$dir."&r1=".$file."\">";
-	echo "<IMG SRC=\"http://".$host."/lizardtech/iserv/getthumb?cat=Imago&item=".$dir."/".$file."&thumbspec=middlebig\" BORDER=\"0\">";
+	//echo "<IMG SRC=\"http://".$host."/lizardtech/iserv/getthumb?cat=Imago&item=".$dir."/".$file."&thumbspec=middlebig\" BORDER=\"0\">";
+	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 
 	print'
 	</A><br>';
