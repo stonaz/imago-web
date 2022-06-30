@@ -23,7 +23,7 @@
 		<ul>
 				<li ><a href="../index.html">Home Imago</a></li>
 <li ><a href="../serie.html">Serie Imago</a></li>
-<li class="first"><a href="../gregoriano/gregoriano_intro.html">Catasto Gregoriano</a></li>
+<li class="first"><a href="../Gregoriano/gregoriano_intro.html">Catasto Gregoriano</a></li>
 
 		
 		</ul>
