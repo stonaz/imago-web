@@ -26,7 +26,7 @@ while($record=pg_fetch_array($result))
 }
 //echo $descr;
 
-function mostra($descr,$row,$dir,$dbserver,$serverIIP)
+function mostra($descr,$row,$dir,$dbserver,$serverIIP,$root)
 {
 	$file=$row;
 	global $catalogo;
@@ -36,7 +36,7 @@ function mostra($descr,$row,$dir,$dbserver,$serverIIP)
 	print'</A></CENTER>';
 	
 }
-mostra($descr,$row,$dir,$dbserver,$serverIIP);
+mostra($descr,$row,$dir,$dbserver,$serverIIP,$root);
 
 ?>
 
