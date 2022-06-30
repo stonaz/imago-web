@@ -47,7 +47,7 @@ mostra($descr,$row,$dir,$dbserver,$serverIIP,$root);
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 }
 
