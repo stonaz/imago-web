@@ -12,7 +12,7 @@ if (!isset($_GET['dir'])){$dir="Agro";}
 if (!isset($_GET['r'])){$row="AGRO-001";}
 	else {$row=$_GET['r'];}
 	
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=agro user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=agro user=$user password=$pwd") or die ('no db');
 $query="select * from mappe where file = '$row' ;";
 
 
@@ -32,7 +32,7 @@ function mostra($descr,$row,$dir,$dbserver,$serverIIP)
 	global $catalogo;
 	echo "<CENTER><strong>$file</strong><br>$descr<br><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file.".jp2','".$dir."')\" BORDER=0>";
-    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file.".jp2&SDS=0,90&CNT=1.0&WID=800&QLT=100&CVT=jpeg\">";
+    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file.".jp2&SDS=0,90&CNT=1.0&WID=800&QLT=100&CVT=jpeg\">";
 	print'</A></CENTER>';
 	
 }
