@@ -7,6 +7,7 @@
 include '../parametri.php';
 $host=$server;
 $catalogo="Imago";
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=$user password=$pwd") or die ('no db');
 
 
 if (!isset($_GET['Provincia'])){$Provincia="Ancona";}
@@ -15,10 +16,9 @@ if (!isset($_GET['Provincia'])){$Provincia="Ancona";}
 if (!isset($_GET['Denominazione'])){$Denominazione="Agugliano";}
 	else {$Denominazione=pg_escape_string($_GET['Denominazione']);}
 
-function mostra($Provincia,$Denominazione,$dbserver,$serverIIP)
+function mostra($Provincia,$Denominazione,$dbserver,$serverIIP,$root,$dbconn)
 {
 
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT * from brogliardi_view where \"PROVINCIA\"='".$Provincia."' AND \"DENOMINAZIONE_BROGLIARDO\"='".$Denominazione."'";
 	$result=pg_query($dbconn,$query);
 	$info=pg_fetch_array($result);
@@ -55,7 +55,7 @@ print'
 <A target="_top" HREF="sfoglia_brogliardi.php?Path=';
  echo $dir;print'&r='; echo $file;
 print'">';
-    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 print '
 </A><br>';
 echo "<a onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
@@ -210,7 +210,7 @@ mostra($Provincia,$Denominazione,$dbserver,$serverIIP);
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 }
 

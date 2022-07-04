@@ -25,7 +25,7 @@ for ($i=0;$i<$cont;$i++)
 {
 	if (substr($Provincia[$i],0,4)=="Forl") {echo "<li>Forli'<ul>";}
 	else {echo "<li>".$Provincia[$i]."<ul>";}
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=$user password=$pwd") or die ('no db');
 	$query_piante="select \"LOCALITA\", \"SCANSIONE\" from \"mappe_view\" WHERE \"PROVINCIA\"='".$Provincia[$i]."' ORDER BY \"LOCALITA\", \"SCANSIONE\" ASC";
 	$result=pg_query($dbconn,$query_piante);
 	$k=1;

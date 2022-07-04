@@ -12,7 +12,7 @@
 
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=$user password=$pwd") or die ('no db');
 $query_localita="select distinct \"PROVINCIA\" from brogliardi_view order by \"PROVINCIA\" ASC";
 $result=pg_query($dbconn,$query_localita);
 $i=0;
@@ -27,7 +27,7 @@ for ($i=0;$i<$cont;$i++)
 {
 	if (substr($Provincia[$i],0,4)=="Forl") {echo "<li>Forli'<ul>";}
 	else {echo "<li>".$Provincia[$i]."<ul>";}
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=$user password=$pwd") or die ('no db');
 	$query_piante="select\"DENOMINAZIONE_BROGLIARDO\" from brogliardi_view WHERE \"PROVINCIA\"='".$Provincia[$i]."' order BY \"DENOMINAZIONE_BROGLIARDO\" ASC";
 	$result=pg_query($dbconn,$query_piante);
 	$k=1;
