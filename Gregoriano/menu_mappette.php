@@ -10,7 +10,7 @@
 
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=$user password=$pwd") or die ('no db');
 $query_localita="select DISTINCT \"PROVINCIA\" from \"mappette_view\" order by \"PROVINCIA\" ASC";
 $result=pg_query($dbconn,$query_localita);
 $i=0;
