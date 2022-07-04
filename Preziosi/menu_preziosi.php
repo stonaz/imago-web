@@ -17,7 +17,7 @@ $condizioni.=" \"Titolo\"!='Mare magnum' AND ";
 $condizioni.=" \"Titolo\"!~'Liber ordinatus*' AND" ;
 $condizioni.=" \"Titolo\"!~'Liber ad recolligendum omnia societatis et*' " ;
 
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=preziosi user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=preziosi user=$user password=$pwd") or die ('no db');
 $query= "select distinct nome_fondo from web_view ";
 $result=pg_query($dbconn,$query);
 while($row=pg_fetch_array($result))
