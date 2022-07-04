@@ -23,7 +23,7 @@ $resource=$root.$dir;
 $fileimm=leggifileimm($resource);
 sort($fileimm);	
 
-function mostra($row,$dir,$serverIIP,$index,$fileimm)
+function mostra($row,$dir,$serverIIP,$index,$fileimm,$root,$dbconn)
 {
 	$file=$row;
 	$scansione=$index+1;
@@ -43,7 +43,7 @@ function mostra($row,$dir,$serverIIP,$index,$fileimm)
 	}
 	echo "<CENTER><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir."')\" BORDER=0>";
-    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
+    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
 	print'</A></CENTER>';
 	
 }
@@ -74,7 +74,7 @@ function leggifileimm($dir)
 	}
 return($ListaFileImm);
 }
-mostra($row,$dir,$serverIIP,$index,$fileimm);
+mostra($row,$dir,$serverIIP,$index,$fileimm,$root,$dbconn);
 
 ?>
 
