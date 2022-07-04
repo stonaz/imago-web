@@ -14,7 +14,7 @@ $query_type= $_POST['query_type'];
 $searchstring= $_POST['searchstring'];
 //echo $_POST['query_type'];
 //echo "Server:".$dbserver;
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=alessandrino user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=alessandrino user=$user password=$pwd") or die ('no db');
 $query_corda="select corda_unica,intestazione from clientview order by cartella, lettera,arabo,bis,romano;";
 if ($query_type=="testo")
 { 

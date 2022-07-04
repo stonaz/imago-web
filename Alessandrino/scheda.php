@@ -5,6 +5,7 @@
 <?PHP
 include '../parametri.php';
 $catalogo="Imago";
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=alessandrino user=$user password=$pwd") or die ('no db');
 
 
 if (!isset($_GET['r'])){$row="428/I";}
@@ -14,9 +15,8 @@ function ContainsNumbers($String){
     return preg_match('/\\d/', $String) > 0;
 }
 
-function mostra($row,$dbserver,$serverIIP,$root)
+function mostra($row,$dbserver,$serverIIP,$root,$dbconn)
 {
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=alessandrino user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT * from clientview where corda_unica='".$row."'";
 	$result=pg_query($dbconn,$query);
 	$info=pg_fetch_array($result);
@@ -146,7 +146,7 @@ echo "Alessandrino.jp2','Kodak')\" BORDER=0>";
 	
 	
 }
-mostra($row,$dbserver,$serverIIP,$root);
+mostra($row,$dbserver,$serverIIP,$root,$dbconn);
 
 ?>
 
