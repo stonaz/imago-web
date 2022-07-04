@@ -8,6 +8,7 @@
 include '../parametri.php';
 $host=$server;
 $catalogo="Imago";
+	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
 
 
 if (!isset($_GET['Provincia'])){$Provincia="Ancona";}
@@ -19,9 +20,8 @@ if (!isset($_GET['Localita'])){$Localita="Agugliano";}
 if (!isset($_GET['Scansione'])){$Scansione="";}
 	else {$Scansione=$_GET['Scansione'];}
 
-function mostra($Pro,$Loc,$Sca,$dbserver,$serverIIP)
+function mostra($Pro,$Loc,$Sca,$dbserver,$serverIIP,$root,$dbconn)
 {
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=gregoriano user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT * FROM mappe_view WHERE \"PROVINCIA\"='".$Pro."' AND trim(\"LOCALITA\")='".trim($Loc)."' AND trim(\"SCANSIONE\")='".$Sca."'";	
 	$result=pg_query($dbconn,$query);
 	
@@ -188,7 +188,7 @@ print '
 }
 
 
-mostra($Provincia,$Localita,$Scansione,$dbserver,$serverIIP);
+mostra($Provincia,$Localita,$Scansione,$dbserver,$serverIIP,$root,$dbconn);
 
 ?>
 
