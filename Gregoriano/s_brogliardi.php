@@ -198,7 +198,7 @@ print '
 }
 
 
-mostra($Provincia,$Denominazione,$dbserver,$serverIIP);
+mostra($Provincia,$Denominazione,$dbserver,$serverIIP,$root,$dbconn);
 
 ?>
 
