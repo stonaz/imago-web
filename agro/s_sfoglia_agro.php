@@ -12,7 +12,7 @@ if (!isset($_GET['dir'])){$dir="Agro";}
 if (!isset($_GET['r'])){$row="AGRO-001";}
 	else {$row=$_GET['r'];}
 	
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=agro user=$user password=$pwd") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=Agro user=$user password=$pwd") or die ('no db');
 $query="select * from mappe where file = '$row' ;";
 
 
