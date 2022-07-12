@@ -79,7 +79,7 @@ echo $image;
 	//var image = "<?php echo $file; ?>";
     // Copyright or information message
     var credit = '&copy; copyright or information message';
-				var viewport = {resolution:7, x:0.9, y:0.9, rotation:0};
+				var viewport = {resolution:2, x:0.0, y:0.0, rotation:0};
 
     // Create our iipmooviewer object
     new IIPMooViewer( "viewer", {
