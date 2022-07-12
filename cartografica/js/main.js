@@ -732,8 +732,7 @@ $(function() {
 
 function immv(file,dir)
 {
-	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
+	url= IIP_URL + "/iip_viewer/iiifimage.php?dir=/AS_Roma/Imago/&file="+dir + '/' +file ;
 	window.open(url,'disegniepiante', "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }
