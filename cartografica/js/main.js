@@ -732,7 +732,8 @@ $(function() {
 
 function immv(file,dir)
 {
-	url= IIP_URL + "iip_viewer/iiifserver.php?dir=&file="+file ;
+	var path = dir + '/' + file ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,'disegniepiante', "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }
