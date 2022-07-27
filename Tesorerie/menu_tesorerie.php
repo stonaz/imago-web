@@ -10,7 +10,7 @@
 <li>Tesoreria provinciale del Patrimonio<ul>
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=$user password=$pwd") or die ('no db');
 $query_corda="select distinct \"busta\" from registri_view WHERE \"nome_serie\"='Tesoreria provinciale del Patrimonio' order by \"busta\" ASC ";
 $result=pg_query($dbconn,$query_corda);
 $i=0;
@@ -24,7 +24,7 @@ $cont=$i;
 for ($i=0;$i<$cont;$i++)
 {
 	echo "<li>Busta #".$busta[$i]."<ul>";
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
+	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=$user password=$pwd") or die ('no db');
 	$query_piante="select \"registro\" from registri_view WHERE \"nome_serie\"='Tesoreria provinciale del Patrimonio' AND \"busta\"='".$busta[$i]."' ORDER BY \"registro\" ASC";
 	$result=pg_query($dbconn,$query_piante);
 
@@ -39,7 +39,7 @@ for ($i=0;$i<$cont;$i++)
 </ul></li>
 <li>Tesoreria provinciale della Marca<ul>
 <?PHP
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=$user password=$pwd") or die ('no db');
 $query_corda="select distinct \"busta\" from registri_view WHERE \"nome_serie\"='Tesoreria provinciale della Marca' order by \"busta\" ASC ";
 $result=pg_query($dbconn,$query_corda);
 $i=0;
@@ -53,7 +53,7 @@ $cont=$i;
 for ($i=0;$i<$cont;$i++)
 {
 	echo "<li>Busta #".$busta[$i]."<ul>";
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
+	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=$user password=$pwd") or die ('no db');
 	$query_piante="select \"registro\" from registri_view WHERE \"nome_serie\"='Tesoreria provinciale della Marca' AND \"busta\"='".$busta[$i]."' ORDER BY \"registro\" ASC";
 	$result=pg_query($dbconn,$query_piante);
 	$k=1;

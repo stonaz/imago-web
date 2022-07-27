@@ -5,6 +5,8 @@
 <BODY BGCOLOR="#EEEEEE">
 <?PHP
 include '../parametri.php';
+	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=$user password=$pwd") or die ('no db');
+
 $host=$server;
 $catalogo="Imago";
 
@@ -19,9 +21,8 @@ if (!isset($_GET['Registro'])){$registro="1";}
 	else {$registro=$_GET['Registro'];}
 
 
-function mostra($serie,$busta,$registro,$dbserver,$serverIIP)
+function mostra($serie,$busta,$registro,$dbserver,$serverIIP,$dbconn,$root)
 {
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT \"Path\",\"Nome\" from scansioni_view where \"Link\"=".$serie." AND \"Busta\"='".$busta."' AND \"Registro\"='".$registro."'";
 	$result=pg_query($dbconn,$query);
 	$imm=pg_fetch_array($result);
@@ -40,7 +41,6 @@ function mostra($serie,$busta,$registro,$dbserver,$serverIIP)
 	$file=$imm[1].".jp2";
 
 
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=tesorerie user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT * from registri_view where \"link\"=".$serie." AND \"busta\"='".$busta."' AND \"registro\"='".$registro."'";
 	$result=pg_query($dbconn,$query);
 	$info=pg_fetch_array($result);
@@ -65,7 +65,7 @@ print'
 <A target="_new" HREF="sfoglia_brog_tes.php?Path=';
  echo $dir;print'&r='; echo $file;
 print'">';
-	    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=/$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 
 print '
 </A><br>';
@@ -120,7 +120,7 @@ echo "SMA200.jp2','Kodak')\" BORDER=0>";
 	';	
 	
 }
-mostra($serie,$busta,$registro,$dbserver,$serverIIP);
+mostra($serie,$busta,$registro,$dbserver,$serverIIP,$dbconn,$root);
 
 ?>
 
