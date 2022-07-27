@@ -229,7 +229,7 @@ else
 						{
 						
 						echo "<A  target=\"_new\" HREF=\"sfoglia_brogliardi.php?r=".$file."&Path=".$dir."\">";
-						echo "<img src='../images/occhio.gif'>&nbsp;".$row_scan[3];
+						echo "<img src='../images/occhio.GIF'>&nbsp;".$row_scan[3];
 						print'</A>'."&nbsp;";
 						}
 						else
@@ -237,7 +237,7 @@ else
 						
 						echo "<A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 						echo $file."','".$dir."')\" BORDER=0>";
-	   					echo "<img src='../images/occhio.gif'>&nbsp;".$row_scan[3];
+	   					echo "<img src='../images/occhio.GIF'>&nbsp;".$row_scan[3];
 						print'</A>'."&nbsp;";
 						}
 						
@@ -278,7 +278,7 @@ mostra($row,$dbserver,$serverIIP,$query_type,$searchstring,$anno_sel,$tipologia_
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }
