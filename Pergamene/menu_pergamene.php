@@ -15,7 +15,7 @@ function cambia(record) {
 
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=$user password=$pwd") or die ('no db');
 $query_corda="SELECT * from serie_view ORDER BY \"nome_serie\" ASC";
 $result=pg_query($dbconn,$query_corda);
 while($row=pg_fetch_array($result))

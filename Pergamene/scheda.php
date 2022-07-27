@@ -38,15 +38,15 @@ $sub=$num_sel[1] ;
 
 if (!isset($_GET['r'])){$row="noQuery";}
 	else {$row=$_GET['r'];}
-
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=$user password=$pwd") or die ('no db');
 //echo $searchstring;
-function mostra($row,$dbserver,$serverIIP,$query_type,$searchstring,$anno_sel,$tipologia_sel,$secolo_sel,$cass,$bis,$numero,$sub,$credits_url)
+function mostra($row,$dbserver,$serverIIP,$query_type,$searchstring,$anno_sel,$tipologia_sel,$secolo_sel,$cass,$bis,$numero,$sub,$credits_url,$dbconn)
 {
 	if ($row == "noQuery"   and $query_type !="segn"){
 		echo "<h2><center>Effettuare una selezione dai criteri di ricerca</center></h2>";
 		return;
 	}
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=imago_web password=normal.2020") or die ('no db');
+	
 	if ($query_type=="segn")
 	{
 	$query = "SELECT * from \"pergamene_view\" where \"CASSETTA\"='".$cass."' AND \"BIS\"='".$bis."'";
@@ -200,12 +200,12 @@ else
 
 
 
-	$dbconnimmall = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=imago_web password=normal.2020") or die ('no db');
+	//$dbconnimmall = pg_connect ("host=$dbserver port=5432 dbname=pergamene user=$user password=$pwd") or die ('no db');
 	$imm_all ="SELECT \"HOST\", \"PATH\",\"NOME\",\"SOGGETTO\" FROM \"scansioni_view\"  where \"CASSETTA\" ='".$info[2]."' AND \"BIS\" = '".$info[3]."' AND \"NUMERO\" = '".$info[4]."' AND \"SUB\" = '".$info[5]."' AND \"DOCUMENTO\" = '".$info[6]."' ORDER BY \"SOGGETTO\"";
 	//echo $imm_all;
 	
 
-	$result4=pg_query($dbconnimmall,$imm_all);
+	$result4=pg_query($dbconn,$imm_all);
 	print '<TR><td valign="top" class="intestazione">Scansioni</td><td class="dati" colspan="';
 	echo  $colspan;
 	print '">';
@@ -267,7 +267,7 @@ else
 	echo "</TD></TR></table>";
 	echo "<HR>";
 }
-mostra($row,$dbserver,$serverIIP,$query_type,$searchstring,$anno_sel,$tipologia_sel,$secolo_sel,$cass,$bis,$numero,$sub,$credits_url);
+mostra($row,$dbserver,$serverIIP,$query_type,$searchstring,$anno_sel,$tipologia_sel,$secolo_sel,$cass,$bis,$numero,$sub,$credits_url,$dbconn);
 
 ?>
 
