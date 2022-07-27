@@ -73,7 +73,7 @@ function leggifileimm($dir)
 return($ListaFileImm);
 }
 
-mostra($row,$dir,$serverIIP,$index,$fileimm);
+mostra($row,$dir,$serverIIP,$index,$fileimm,$root);
 
 ?>
 
