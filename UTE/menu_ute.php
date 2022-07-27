@@ -19,7 +19,7 @@ $searchstring= $_POST['searchstring'];
 <ul class="flipMenu">
 
 <?PHP
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ute user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ute user=$user password=$pwd") or die ('no db');
 
 	if (!isset($_POST['searchstring']))
 	{

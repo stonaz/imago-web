@@ -21,7 +21,7 @@ Annulla selezione</a></form>
 <option >
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ute user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ute user=$user password=$pwd") or die ('no db');
 
 $query_greg="select  \"Nuova_corda\",riferimento from \"Gregoriano_vistaView\" order by riferimento";
 //echo $query_comune;

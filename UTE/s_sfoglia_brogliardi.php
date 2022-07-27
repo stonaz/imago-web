@@ -17,7 +17,7 @@ if (!isset($_GET['r'])){$row=$_GET['File'];}
 
 
 
-function mostra($row,$dir,$serverIIP)
+function mostra($row,$dir,$serverIIP,$root)
 {
 	$file=strtolower($row);
 	//echo $file."<br>";
@@ -26,7 +26,7 @@ function mostra($row,$dir,$serverIIP)
 	global $catalogo;
 	echo "<CENTER><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir."')\" BORDER=0>";
-	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
+	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
 
 	//echo "<IMG SRC=\"http://".$host."/lizardtech/iserv/getthumb?cat=".$catalogo."&item=".$dir."\\".$file."&thumbspec=bigger\">";
 	print'</A></CENTER>';
