@@ -10,7 +10,9 @@
 <?PHP
 
 include '../parametri.php';
-function leggifileimm($root,$dir,$dbserver)
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ute user=$user password=$pwd") or die ('no db');
+
+function leggifileimm($root,$dir,$dbserver,$dbconn)
 {
 	
 	$dir1=$dir;
@@ -20,7 +22,6 @@ function leggifileimm($root,$dir,$dbserver)
 
 	//echo "<HR>".$dir;
 
-	$dbconn2 = pg_connect ("host=$dbserver port=5432 dbname=ute user=$user password=$pwd") or die ('no db');
 	$query_scan="select \"DESCRIZIONE\",\"NOME\" FROM \"Mappe_scansioniView\" where \"PATH\" ='".$dir."' order by \"NOME\"";	
 	//echo $query_scan;
 
@@ -38,7 +39,7 @@ function leggifileimm($root,$dir,$dbserver)
 $path=$_GET['Path'];
 //echo $path;
 
-leggifileimm($root,$path,$dbserver);
+leggifileimm($root,$path,$dbserver,$dbconn);
 ?>
 
 </ul></li>
