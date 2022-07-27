@@ -4,6 +4,8 @@
 </head>
 <?PHP
 include '../parametri.php';
+	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=notai user=$user password=$pwd") or die ('no db');
+
 $host=$server;
 $catalogo="Imago";
 
@@ -12,13 +14,12 @@ if (!isset($_GET['r'])){$row="748.01";}
 	else {$row=$_GET['r'];}
 
 
-function mostra($row,$dbserver,$serverIIP)
+function mostra($row,$dbserver,$serverIIP,$dbconn,$root)
 {
 print '	 <table width="100%" border="1" align="left">
 	<tr> 
    	 <td valign="top" width="60%" rowspan="2" align="left">
 ';
-	$dbconn = pg_connect ("host=$dbserver port=5432 dbname=notai user=imago_web password=normal.2020") or die ('no db');
 	$query = "SELECT * from rubriche_view where link=".$row;
 	$result=pg_query($dbconn,$query);
 
@@ -34,10 +35,10 @@ print '	 <table width="100%" border="1" align="left">
         <td width="23%" class="intestazione" >Volume</td>
           <td width="77%" class="dati">&nbsp;'; echo  $info[4]; print'</td>
 <td   rowspan="14" align="center" valign="middle" bgcolor="#EFEFDD">'; 
-	$dbconn2 = pg_connect ("host=$dbserver port=5432 dbname=notai user=imago_web password=normal.2020") or die ('no db');
+	//$dbconn2 = pg_connect ("host=$dbserver port=5432 dbname=notai user=$user password=$pwd") or die ('no db');
 	$query_scan="select \"PATH\", \"NOME\" FROM scansioni_view where link =".$row." AND \"Volume\" = ".$info[4]." AND \"sub\" = '".$info[5]."'";
 	
-	$result_scan=pg_query($dbconn2,$query_scan);
+	$result_scan=pg_query($dbconn,$query_scan);
 	$row_scan = pg_fetch_array($result_scan);
 
 	$dir=$row_scan[0];
@@ -48,7 +49,7 @@ print '	 <table width="100%" border="1" align="left">
 	$file=$row_scan[1].".jp2";
 
 	echo "<CENTER><A  target=\"_new\" HREF=\"sfoglia_brogliardi.php?r1=".$file."&Path=".$dir."\">";
-	    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 
 	print'
 	</A><br>';
@@ -111,7 +112,7 @@ print'</td>
 	
 	
 }
-mostra($row,$dbserver,$serverIIP);
+mostra($row,$dbserver,$serverIIP,$dbconn,$root);
 
 ?>
 
@@ -122,7 +123,7 @@ mostra($row,$dbserver,$serverIIP);
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }

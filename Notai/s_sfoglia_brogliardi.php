@@ -23,7 +23,7 @@ $resource=$root.$dir;
 $fileimm=leggifileimm($resource);
 sort($fileimm);	
 
-function mostra($row,$dir,$serverIIP,$index,$fileimm)
+function mostra($row,$dir,$serverIIP,$index,$fileimm,$root)
 {
 	$file=$row;
 	$scansione=$index+1;
@@ -43,7 +43,7 @@ function mostra($row,$dir,$serverIIP,$index,$fileimm)
 	}
 	echo "<CENTER><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir."')\" BORDER=0>";
-    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
+    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=1024&QLT=100&CVT=jpeg\">";
 	print'</A></CENTER>';
 	
 }
@@ -74,7 +74,7 @@ function leggifileimm($dir)
 	}
 return($ListaFileImm);
 }
-mostra($row,$dir,$serverIIP,$index,$fileimm);
+mostra($row,$dir,$serverIIP,$index,$fileimm,$root);
 
 ?>
 
@@ -86,7 +86,7 @@ mostra($row,$dir,$serverIIP,$index,$fileimm);
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 }
 

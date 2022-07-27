@@ -9,7 +9,7 @@
 
 <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=notai user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=notai user=imago_web password=$pwd") or die ('no db');
 $query_corda="select * from serie_view;";
 $result=pg_query($dbconn,$query_corda);
 while($row=pg_fetch_array($result))
