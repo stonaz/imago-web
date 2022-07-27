@@ -6,11 +6,14 @@
 </head>
 <?PHP
 include "_css/common_db_pg.inc";
+$link_id=db_connect($dbserver,$user,$pwd);
 $file_php="scheda.php";
 $db="bazzani";
 $dir_imm="Bazzani/";
 $dir_thu="thumbnail/";
+
 include '../../parametri.php';
+$root="/images/Patrimonio/Archivi/AS_Terni/";
 if (!isset($_GET['r'])){$row="001";}
 	else {$row=$_GET['r'];}
 
@@ -22,14 +25,14 @@ if ($a=="FORLI") return ("FORLI'");
 return $a;
 }
 
-function mostra($row,$server,$serverIIP,$dbserver)
+function mostra($row,$server,$serverIIP,$dbserver,$root,$link_id)
 {
 
 
 	global $db;
 	global $dir_imm;
 	global $dir_thu;
-	$link_id=db_connect($dbserver);
+	
 	if (strlen($row)>3) {$query="SELECT * FROM \"disegni\" WHERE \"codicedisegno\"='".$row."' ORDER BY NCORDA";}
 	else {$query="SELECT * FROM disegni WHERE UAProgetto ='".$row."' ORDER BY NCORDA";}
 	//echo $query;
@@ -71,7 +74,7 @@ $dir=substr($file,2,3);
 
 echo "<A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir_imm.$dir."')\" BORDER=0>";
-	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=/images/Patrimonio/Archivi/AS_Terni/".$dir_imm."/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir_imm."/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 	print'
 </A><br>';
 
@@ -83,7 +86,7 @@ print'</table>';
 echo "\n";
 db_disconnect();
 }
-mostra($row,$server,$serverIIP,$dbserver);
+mostra($row,$server,$serverIIP,$dbserver,$root,$link_id);
 
 ?>
 
