@@ -32,7 +32,7 @@ function mostra($row,$dir,$serverIIP,$root)
 	print'</A></CENTER>';
 	
 }
-mostra($row,$dir,$serverIIP);
+mostra($row,$dir,$serverIIP,$root);
 
 ?>
 
