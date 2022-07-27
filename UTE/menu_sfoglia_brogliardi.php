@@ -25,7 +25,7 @@ function leggifileimm($root,$dir,$dbserver,$dbconn)
 	$query_scan="select \"DESCRIZIONE\",\"NOME\" FROM \"Mappe_scansioniView\" where \"PATH\" ='".$dir."' order by \"NOME\"";	
 	//echo $query_scan;
 
-	$result_scan=pg_query($dbconn2,$query_scan);
+	$result_scan=pg_query($dbconn,$query_scan);
 
 	while ($row_scan=pg_fetch_array($result_scan))
 	{

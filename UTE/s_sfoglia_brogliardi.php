@@ -46,7 +46,7 @@ function immv(file,dir)
 	var path = dir + '/' + file ;
 	//url_inizio="http://<?PHP echo $host ?>:9001/StyleServer/calcrgn?browser=win_ie&cat=Imago&style=default/view.xsl&wid=400&hei=300&browser=win_ie&plugin=false&item=";
 	//url_fine="&wid=400&hei=300&style=default/view.xsl&plugin=false";
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }
