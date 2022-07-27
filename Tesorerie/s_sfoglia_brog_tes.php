@@ -23,7 +23,7 @@ $resource=$root.$dir;
 $fileimm=leggifileimm($resource);
 sort($fileimm);
 
-function mostra($row,$dir,$serverIIP,$index,$fileimm)
+function mostra($row,$dir,$serverIIP,$index,$fileimm,$root)
 {
 	$file=$row;
 	$scansione=$index+1;
