@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.46, created on 2022-08-08 17:37:41
+/* Smarty version 3.1.46, created on 2022-08-08 18:34:31
   from '/var/www/html/discriminazioni/templates/sfoglia_fascicolo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.46',
-  'unifunc' => 'content_62f12dc58b28d5_93250027',
+  'unifunc' => 'content_62f13b17de1d70_90422054',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99fb60a77f315402441daba86b5715a0d87d2838' => 
     array (
       0 => '/var/www/html/discriminazioni/templates/sfoglia_fascicolo.tpl',
-      1 => 1652962843,
+      1 => 1659976379,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62f12dc58b28d5_93250027 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62f13b17de1d70_90422054 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -85,7 +85,7 @@ function content_62f12dc58b28d5_93250027 (Smarty_Internal_Template $_smarty_tpl)
     // IIPMooViewer options: See documentation at http://iipimage.sourceforge.net for more details
     // Server path: set if not using default path
     var server = 'http://<?php echo $_smarty_tpl->tpl_vars['server']->value;?>
-/iiifserver/';
+/iipsrv/iipsrv.fcgi/';
 
     // The *full* image path on the server. This path does *not* need to be in the web
     // server root directory. On Windows, use Unix style forward slash paths without

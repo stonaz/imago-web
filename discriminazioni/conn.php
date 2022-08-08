@@ -5,6 +5,8 @@
        // $root_dir = "/images/AS_Roma/Patrimonio/Imago/discriminazioni/";
       //  $root_dir="\\\\192.168.2.5\\imago\\Patrimonio\\Archivi\\AS_Roma\\Imago\\Discriminazioni";
       //  $iip_dir = "/images/AS_Roma/Patrimonio/Imago/discriminazioni/";
+      $root_dir="/images/Patrimonio/Archivi/AS_Roma/Imago/Discriminazioni/";
+
         $iip_dir = "/images/Patrimonio/Archivi/AS_Roma/Imago/Discriminazioni/";
 
        // $server = "www.imago.archiviodistatoroma.beniculturali.it";
