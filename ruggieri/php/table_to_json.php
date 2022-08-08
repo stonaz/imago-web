@@ -1,7 +1,7 @@
 <?PHP
 require '../../parametri.php';
 require 'functions.php'; // functions used in the script
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ruggeri user=imago_web password=normal.2020") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=ruggeri user=$user password=$pwd") or die ('no db');
 function get_immagini($categoria,$dbconn)
 {
    //echo "QUI";
