@@ -22,7 +22,7 @@ var templateHelpers = {
 }
 
    //var SERVER_URL="http://10.211.55.14/";
-   var url = "discriminazioni/menu.php" ;
+   var url = "menu.php" ;
     var lista_fondi = $.ajax({
         async: false,
         url: url,
@@ -82,7 +82,7 @@ function initialize() {
 
 function createListaMain(lista_fondi,openlista) {
    console.log('start main');
-   console.log('SERVER_URL: ' + SERVER_URL);
+   //console.log('SERVER_URL: ' + SERVER_URL);
     var tmplMarkup = $('#templateSegnatura').html();
     var tmplMarkup2 = $('#templateHome').html();
     //cleanScreen();
