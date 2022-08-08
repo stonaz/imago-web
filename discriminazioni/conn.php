@@ -1,4 +1,5 @@
 <?php
+        include '../parametri.php';
         require 'check_auth.php';
         $dbconn = pg_connect ("host=$dbserver port=5432 dbname=Ebrei user=postgres password=Superman123") or die ('no db');
        // $root_dir = "/images/AS_Roma/Patrimonio/Imago/discriminazioni/";
@@ -8,8 +9,8 @@
 
         $server = "www.imago.archiviodistatoroma.beniculturali.it";
         try {
-   $pdo = new PDO('pgsql:host=$dbserver;port=5432;dbname=Ebrei;user=postgres;password=Superman123');
- //  echo "PDO connection object created";
+   $pdo = new PDO('pgsql:host='.$dbserver.';port=5432;dbname=Ebrei;user=postgres;password=Superman123');
+   //echo "PDO connection object created";
 }
 catch(PDOException $e)
 {

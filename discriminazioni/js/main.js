@@ -21,9 +21,8 @@ var templateHelpers = {
     }
 }
 
-   var SERVER_URL="http://www.imago.archiviodistatoroma.beniculturali.it/";
-   //var IIP_URL="http://94.177.173.163/";
-   var url = SERVER_URL + "discriminazioni/menu.php" ;
+   //var SERVER_URL="http://10.211.55.14/";
+   var url = "discriminazioni/menu.php" ;
     var lista_fondi = $.ajax({
         async: false,
         url: url,

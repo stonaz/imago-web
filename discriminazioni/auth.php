@@ -1,15 +1,15 @@
 <?php
 //include 'log_access.php';
 //include 'error.inc';
-
-function authenticateUser($username, $password)
+include '../parametri.php';
+function authenticateUser($username, $password,$dbserver)
 {
   // Test that the username and password 
   // are both set and return false if not
+  echo $dbserver;
   if (!isset($username) || !isset($password))
     return false;
- // $dbconn = pg_connect ("host=localhost port=5432 dbname=Topografico user=$username password=$password") ;
-    $pdo = new PDO('pgsql:host=$dbserver;dbname=Ebrei', 'postgres', 'Superman123');
+    $pdo = new PDO('pgsql:host='.$dbserver.';dbname=Ebrei', 'postgres', 'Superman123');
     $stmt = $pdo->prepare("SELECT password, email FROM users where password =  crypt(:pwd, password) AND email = :email AND active=true");
     $stmt->bindParam(':email', $username);
     $stmt->bindParam(':pwd', $password);
@@ -24,7 +24,7 @@ function authenticateUser($username, $password)
 
 }
 
-function log_access($user,$ip,$timestamp)
+function log_access($user,$ip,$timestamp,$dbserver)
 {
 //$dbconn = pg_connect ("host=localhost port=5432 dbname=Topografico user=postgres password=postgres") or die ('no db');
 $dbconn = pg_connect ("host=$dbserver port=5432 dbname=Ebrei user=postgres password=Superman123") or die ('no db');
@@ -42,7 +42,7 @@ $dbconn = pg_connect ("host=$dbserver port=5432 dbname=Ebrei user=postgres passw
   $appUsername = $_POST["formUsername"];
   $appPassword = $_POST["formPassword"];
 
-  $authenticated = authenticateUser($appUsername, $appPassword);
+  $authenticated = authenticateUser($appUsername, $appPassword,$dbserver);
   
 
   if ($authenticated == true) 
@@ -52,7 +52,7 @@ $dbconn = pg_connect ("host=$dbserver port=5432 dbname=Ebrei user=postgres passw
     $_SESSION['password'] = $appPassword;
     $_SESSION['loginIpAddress'] = $_SERVER['REMOTE_ADDR'];
     $current_timestamp = date('Y-m-d H:i:s');
-    log_access($_SESSION['authenticatedUser'] ,  $_SESSION['loginIpAddress'] , $current_timestamp);
+    log_access($_SESSION['authenticatedUser'] ,  $_SESSION['loginIpAddress'] , $current_timestamp,$dbserver);
  // header("Location: index.php");
   echo "<script>top.window.location = 'discriminazioni.php'</script>";
   }
