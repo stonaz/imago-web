@@ -20,6 +20,7 @@
         <!-- start php code -->
 <?php
 require 'servers.php';
+require '../parametri.php';
 function send_activation_mail( $email,$pwd,$nome,$cognome,$tel,$db_server,$web_server)
         {
     $msg = 'Il tuo account è stato creato, <br /> Attivalo  cliccando sul link che ti è stato spedito per email.';
@@ -101,14 +102,14 @@ http://'.$web_server.'/discriminazioni/verify.php?email='.$email.'&hash='.$hash.
         $tel = $_POST['tel']; // Turn our post into a local variable
         $nome = $_POST['nome']; // Turn our post into a local variable
         $cognome = $_POST['cognome']; // Turn our post into a local variable
-        $err_msg = check_email($email,$db_server); //Controllo che la mail non sia già presente nel DB
+        $err_msg = check_email($email,$dbserver); //Controllo che la mail non sia già presente nel DB
         if ($err_msg == '') //Se il controllo è OK, procedo scon gli altri controlli
         {
          $err_msg = check_data($email,$tel,$pwd);    
          if ($err_msg == '')
          {
           $ok_msg = 'Il tuo account è stato creato, <br /> Attivalo  cliccando sul link che ti è stato spedito per email.';
-          send_activation_mail($email,$pwd,$nome,$cognome,$tel,$db_server,$web_server);
+          send_activation_mail($email,$pwd,$nome,$cognome,$tel,$dbserver,$web_server);
          }  
        }
     }

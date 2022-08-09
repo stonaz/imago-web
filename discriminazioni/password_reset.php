@@ -12,10 +12,11 @@
 		
 <?PHP
 require 'servers.php';
-function send_reset_mail( $email,$db_server,$web_server)
+require '../parametri.php';
+function send_reset_mail( $email,$dbserver,$web_server)
         {
     //$dbConnection = new PDO('postgr:dbname=ebrei;host=localhost;charset=utf8', 'postgres', 'Superman123');
-    $pdo = new PDO('pgsql:host='.$db_server.';dbname=Ebrei', 'postgres', 'Superman123');
+    $pdo = new PDO('pgsql:host='.$dbserver.';dbname=Ebrei', 'postgres', 'Superman123');
     $hash = md5( rand(0,1000) );
     $stmt = $pdo->prepare("INSERT INTO password_resets (email,token) VALUES  (:email,:hash )");
     $stmt->bindParam(':email', $email);
@@ -43,7 +44,7 @@ http://'.$web_server.'/discriminazioni/newpass.php?email='.$email.'&hash='.$hash
   $email = $_POST['email'];
 //  echo $email;
   // ensure that the user exists on our system
-  $pdo = new PDO('pgsql:host='.$db_server.';dbname=Ebrei', 'postgres', 'Superman123');
+  $pdo = new PDO('pgsql:host='.$dbserver.';dbname=Ebrei', 'postgres', 'Superman123');
   $stmt = $pdo->prepare("SELECT * from users where email = :email");
   $stmt->bindParam(':email', $email);
   $stmt->execute() or die('error on select');
@@ -57,7 +58,7 @@ http://'.$web_server.'/discriminazioni/newpass.php?email='.$email.'&hash='.$hash
   }
   else{
         $ok_msg = 'Puoi fare il reset della password cliccando sul link che ti è stato spedito per e-mail.';
-    send_reset_mail( $email,$db_server,$web_server);
+    send_reset_mail( $email,$dbserver,$web_server);
     
 }
 
