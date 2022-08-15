@@ -39,7 +39,7 @@ if (!isset($_GET['Path'])){$path="Imago\URBR04\Borgo";}
 	else {$path=$_GET['Path'];}
 //echo stripslashes($path)."<br>|";
 //$path=stripslashes($path);
-function mostra($Rione,$path,$dbserver,$serverIIP,$dbconn)
+function mostra($Rione,$path,$dbserver,$serverIIP,$dbconn,$root)
 {
 	$path2=str_replace("\\","\\\\",$path);
 	$query = "SELECT * from brogliardi_vista where \"Rione\"='".$Rione."' AND \"Path\"='".$path."'";
@@ -84,7 +84,7 @@ print'</td>
 <A target="_top" HREF="sfoglia_brogliardi.php?Path=';
  echo $dir;print'&r='; echo $file;
 print'">';
-	    	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	    	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 print '
 </A><br>';
 echo "<a onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
@@ -254,7 +254,7 @@ print '</td></tr></table>';
 
 
 
-mostra($Rione,$path,$dbserver,$serverIIP,$dbconn);
+mostra($Rione,$path,$dbserver,$serverIIP,$dbconn,$root);
 
 ?>
 
