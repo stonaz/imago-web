@@ -40,7 +40,7 @@ if (!isset($_GET['Porzione'])){$porzione="I";}
 if (!isset($_GET['Allegato'])){$allegato=" ";}
 	else {$allegato=$_GET['Allegato'];}
 
-function mostra($Rione,$porzione,$allegato,$dbserver,$serverIIP,$dbconn)
+function mostra($Rione,$porzione,$allegato,$dbserver,$serverIIP,$dbconn,$root)
 {
 
 	$query = "SELECT * from suddivisioni_vista where \"Rione\"='".$Rione."' AND \"Porzioni\"='".$porzione."' AND \"Allegato\"='".$allegato."' ";
@@ -79,7 +79,7 @@ print' <table width="100%" align="center" >
 <td rowspan="14" align="center" valign="middle" class="preview_grey"  >';
 echo "<CENTER><A  onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
 	echo $file."','".$dir."')\" BORDER=0>";
-	echo "<IMG SRC=\"http://".$serverIIP."/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
+	echo "<IMG SRC=\"http://".$serverIIP."/iipsrv/iipsrv.fcgi?FIF=$root".$dir."/".$file."&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg\">";
 	print'
 </A><br>';
 echo "<a onMouseOver=\"this.style.cursor='pointer'\" onMouseOut=\"this.style.cursor='text'\" onClick=\"javascript:immv('";
@@ -282,7 +282,7 @@ print '</select></td></tr></table>';
 print '</td></tr></table>'; 
 
 
-mostra($Rione,$porzione,$allegato,$dbserver,$serverIIP,$dbconn);
+mostra($Rione,$porzione,$allegato,$dbserver,$serverIIP,$dbconn,$root);
 
 ?>
 
@@ -293,7 +293,7 @@ mostra($Rione,$porzione,$allegato,$dbserver,$serverIIP,$dbconn);
 function immv(file,dir)
 {
 	var path = dir + '/' + file ;
-	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=/AS_Roma/Imago/&file=" +path ;
+	url="http://<?PHP echo $serverIIP ?>/iip_viewer/<?PHP echo $viewer ?>?dir=&file=" +path ;
 	window.open(url,null, "height=400,width=600,status=yes,toolbar=no,menubar=no,location=no");
 	
 }
