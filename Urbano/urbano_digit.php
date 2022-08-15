@@ -61,7 +61,7 @@
         <ul>
           <?PHP
 include '../parametri.php';
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=urbano user=imago_web password=normal.2020") or die ('no db');
+include 'conn.php';
 $query_localita="select \"Arabo\",\"Rione\" from rioni_vista order by \"Rione\" ";
 $result=pg_query($dbconn,$query_localita);
 $i=0;
