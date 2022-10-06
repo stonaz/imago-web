@@ -15,7 +15,7 @@ $searchstring = (isset($_POST['searchstring'])) ? $_POST['searchstring'] : "";
 
 //echo $_POST['query_type'];
 //echo "Server:".$dbserver;
-$dbconn = pg_connect ("host=$dbserver port=5432 dbname=agro user=$user password=$pwd") or die ('no db');
+$dbconn = pg_connect ("host=$dbserver port=5432 dbname=Agro user=$user password=$pwd") or die ('no db');
 $query_corda="select * from mappe order by 1;";
 
 
