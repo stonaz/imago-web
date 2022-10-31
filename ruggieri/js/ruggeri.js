@@ -1,15 +1,15 @@
 var imageProperties = []
-var urlStart="http://www.imago.archiviodistatoroma.beniculturali.it/iip_viewer/iiifserver.php?dir=/AS_Roma/Imago/&file=/Ruggeri/";
+var urlStart="https://imagoarchiviodistatoroma.cultura.gov.it/iip_viewer/iiifserver.php?dir=/AS_Roma/Imago/&file=/Ruggeri/";
 var file="001.jp2";
 //var urlEnd="&style=default/view.xsl&wid=600&hei=400&browser=win_ie&plugin=false";
 var url= urlStart+file;
-var thumbStart="http://www.imago.archiviodistatoroma.beniculturali.it/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/Ruggeri/";
+var thumbStart="https://imagoarchiviodistatoroma.cultura.gov.it//iipsrv/iipsrv.fcgi?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/Ruggeri/";
 var thumbEnd="&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg";
 var thumb= thumbStart+file+thumbEnd;
 console.log(thumb);
 var title
 var descr
-var host="http://www.imago.archiviodistatoroma.beniculturali.it"
+var host="https://imagoarchiviodistatoroma.cultura.gov.it"
 
 function createList(listaImmagini){
 	var target = $("#lista");
@@ -102,11 +102,7 @@ $('#loading').show();
 $("#thumb").attr("src",thumb);
 }
 
-function newwindow2() 
-            { 
 
-     window.open('http://www.imago.archiviodistatoroma.beniculturali.it:9001/StyleServer/calcrgn?cat=Imago&img=kodak/Alessandrino.jp2&style=default/view.xsl&wid=600&hei=400&browser=win_ie&plugin=false','band','width=640,height=500,resizable=yes'); 
-     } 
 
 function newwindow(url) 
      { 
