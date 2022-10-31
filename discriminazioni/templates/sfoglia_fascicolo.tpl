@@ -54,7 +54,7 @@
 
     // IIPMooViewer options: See documentation at http://iipimage.sourceforge.net for more details
     // Server path: set if not using default path
-    var server = 'http://{$server}/iipsrv/iipsrv.fcgi/';
+    var server = 'https://{$server}/iipsrv/iipsrv.fcgi/';
 
     // The *full* image path on the server. This path does *not* need to be in the web
     // server root directory. On Windows, use Unix style forward slash paths without
