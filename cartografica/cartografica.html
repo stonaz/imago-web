@@ -199,7 +199,7 @@
        <% _.each(foglio.images, function(image) { %>
        
        <A  onMouseOver="this.style.cursor='pointer'" onMouseOut="this.style.cursor='text'" onClick="javascript:immv('<%= image %>.jp2','Cartografica/<%= data.classe %>/<%= data.fondo %>/<%= foglio.cartella %>/<%= foglio.foglio %>')" BORDER=0>
-           <IMG BORDER="0" SRC="http://www.imago.archiviodistatoroma.beniculturali.it/iiifserver?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/Cartografica/<%= data.classe %>/<%= data.fondo %>/<%= foglio.cartella %>/<%= foglio.foglio %>/<%= image %>.jp2&&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg">
+           <IMG BORDER="0" SRC="http://www.imago.archiviodistatoroma.beniculturali.it//iipsrv/iipsrv.fcgi?FIF=/images/Patrimonio/Archivi/AS_Roma/Imago/Cartografica/<%= data.classe %>/<%= data.fondo %>/<%= foglio.cartella %>/<%= foglio.foglio %>/<%= image %>.jp2&&SDS=0,90&CNT=1.0&WID=512&QLT=100&CVT=jpeg">
 </A>
             <% }); %>
       </div>
