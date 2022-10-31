@@ -1,8 +1,8 @@
 
    //var segnatura = [80, 239, 1];
    
-   var SERVER_URL="http://imagoarchiviodistatoroma.cultura.gov.it//";
-   var IIP_URL="http://imagoarchiviodistatoroma.cultura.gov.it//";
+   var SERVER_URL="https://imagoarchiviodistatoroma.cultura.gov.it//";
+   var IIP_URL="https://imagoarchiviodistatoroma.cultura.gov.it//";
    var url = SERVER_URL + "/cartografica/php/segnature_main_collezioni.php" ;
    console.log(url);
     var lista_segnature_collezioni = $.ajax({
