@@ -1,5 +1,5 @@
 var imageProperties = []
-var urlStart="https://imagoarchiviodistatoroma.cultura.gov.it//iiifserver.php?dir=&file=/Ruggeri/";
+var urlStart="https://imagoarchiviodistatoroma.cultura.gov.it/iip_viewer/iiifserver.php?dir=&file=/Ruggeri/";
 var file="001.jp2";
 //var urlEnd="&style=default/view.xsl&wid=600&hei=400&browser=win_ie&plugin=false";
 var url= urlStart+file;
